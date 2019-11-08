@@ -5,3 +5,9 @@ dependencies:
   url: https://github.com/cloudbees/jx-tenant-service
   version: 0.0.163
   versionURL: https://github.com/cloudbees/jx-tenant-service/releases/tag/v0.0.163
+- host: github.com
+  owner: macox
+  repo: dr1-app
+  url: https://github.com/macox/dr1-app.git
+  version: ""
+  versionURL: ""
