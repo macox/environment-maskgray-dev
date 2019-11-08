@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: macox
+    provider: github
+    repository: dr3-app
+  name: macox-dr3-app
+spec:
+  description: Imported application for macox/dr3-app
+  httpCloneURL: https://github.com/macox/dr3-app.git
+  org: macox
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: dr3-app
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/macox/dr3-app.git
