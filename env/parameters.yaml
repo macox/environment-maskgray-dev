@@ -1,0 +1,14 @@
+adminUser:
+  password: vault:maskgray/adminUser:password
+  username: admin
+dashboardAuthID: vault:maskgray:dashboardAuthID
+dashboardAuthOrg: arcalos-dashboard
+dashboardAuthSecret: vault:maskgray:dashboardAuthSecret
+dashboardGrpchost: dex.jx
+enableDocker: false
+pipelineUser:
+  email: arcalos-admin@googlegroups.com
+  token: vault:maskgray/pipelineUser:token
+  username: arcalos-bot
+prow:
+  hmacToken: vault:maskgray/prow:hmacToken

@@ -1,36 +1,93 @@
 autoUpdate:
   enabled: true
-  schedule: '0 0 * * *'
+  schedule: 0 0 * * *
+bootConfigURL: https://github.com/cloudbees/arcalos-boot-config.git
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  project: ""
+  clusterName: maskgray
+  environmentGitOwner: arcalos-environments
+  environmentGitPublic: true
+  externalDNSSAName: maskgray-dn
+  gitKind: github
+  gitName: github
+  gitPublic: true
+  gitServer: https://github.com
+  gke:
+    projectNumber: "868329975883"
+  kanikoSAName: maskgray-ko
+  namespace: jx
+  project: aps-maskgray
   provider: gke
-  zone: ""
-gitops: true
+  registry: gcr.io
+  vaultName: maskgray
+  vaultSAName: maskgray-vt
+  zone: us-east1-c
+environments:
+- ingress:
+    cloud_dns_secret_name: external-dns-gcp-sa
+    domain: aps-maskgray.play-jxaas.live
+    domainIssuerURL: https://jx-tenant-service-jx.aps-raccoonshimmer.play-jxaas.live
+    externalDNS: true
+    namespaceSubDomain: -jx.
+    tls:
+      email: jenkins-x@cloudbees.com
+      enabled: true
+      production: true
+  key: dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
 githubApp:
   enabled: false
-environments:
-- key: dev
-- key: staging
-- key: production
+gitops: true
 ingress:
-  domain: ""
-  externalDNS: false
+  cloud_dns_secret_name: external-dns-gcp-sa
+  domain: aps-maskgray.play-jxaas.live
+  domainIssuerURL: https://jx-tenant-service-jx.aps-raccoonshimmer.play-jxaas.live
+  externalDNS: true
+  namespaceSubDomain: -jx.
   tls:
     email: jenkins-x@cloudbees.com
     enabled: true
-    production: false
+    production: true
 kaniko: true
+repository: nexus
 secretStorage: vault
 storage:
+  backup:
+    enabled: true
+    url: gs://aps-maskgray-backup
   logs:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://aps-maskgray-lts
   reports:
     enabled: false
     url: ""
   repository:
     enabled: false
     url: ""
+vault:
+  bucket: aps-maskgray-vault
+  key: maskgray-crypto-key
+  keyring: maskgray-keyring
+  name: maskgray
+  serviceAccount: maskgray-vt
+velero: {}
+versionStream:
+  ref: v0.0.93
+  url: https://github.com/cloudbees/arcalos-jenkins-x-versions.git
 webhook: prow
